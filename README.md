@@ -292,7 +292,7 @@ Terminal 3 - send payload:
 
 ## Credits
 - [Sliver C2](https://github.com/BishopFox/sliver) - C2 framework
-- [Nim](https://nim-lang.org/) - compiler for loader
+- [Nim](https://nim-lang.org/) - compiler for loader bypass defender
 
 ---
 
