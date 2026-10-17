@@ -1,0 +1,19 @@
+# Build artifacts (rebuild with build_loader.py / build_installer.py)
+loader.exe
+loader_embed.exe
+winrar_installer.exe
+*.nim
+loader.nim
+loader_embed.nim
+
+# Payloads and source binaries: never commit
+shellc*.bin
+implant.exe
+winrar-beac.exe
+winrar_x64.exe
+test_extracted.exe
+*.exe
+
+# Backups
+*.bak.*
+.backup/
