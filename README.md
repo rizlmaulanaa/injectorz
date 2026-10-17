@@ -291,10 +291,8 @@ Terminal 3 - send payload:
 ---
 
 ## Credits
-
-- [TeneBrae93/defender_bypass_with_sliver](https://github.com/TeneBrae93/defender_bypass_with_sliver) - loader template reference
 - [Sliver C2](https://github.com/BishopFox/sliver) - C2 framework
-- [Nim](https://nim-lang.org/) - compiler for loader
+- [Nim](https://nim-lang.org/) - compiler for loader bypass defender
 
 ---
 
