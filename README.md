@@ -94,7 +94,7 @@ winrar_installer.exe  Final payload ready to deploy
 shellc.bin            Sliver shellcode (generate per deployment)
 ```
 
----
+--- ---
 
 ## Placeholders
 
